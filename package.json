@@ -11,6 +11,9 @@
     "bundle": "rm public/js/* ; NODE_ENV=production webpack --config webpack.prod.config.js && json-manifest public js/*.js > public/js/manifest.json"
   },
   "author": "Phillip Johnsen <phillip@lightweight.no>",
+  "engines": {
+    "node": "0.12.x"
+  },
   "private": true,
   "license": "MIT",
   "dependencies": {
