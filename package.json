@@ -19,17 +19,17 @@
   "license": "MIT",
   "dependencies": {
     "babel": "^4.0.1",
+    "babel-core": "^4.0.1",
+    "babel-loader": "^4.0.0",
     "immutable": "^3.6.2",
     "react": "^0.12.2",
     "reflux": "^0.2.5",
-    "xhr": "^2.0.1"
+    "xhr": "^2.0.1",
+    "webpack": "^1.5.3",
+    "json-manifest": "^1.0.1"
   },
   "devDependencies": {
-    "babel-core": "^4.0.1",
-    "babel-loader": "^4.0.0",
-    "json-manifest": "^1.0.1",
     "react-hot-loader": "^1.1.5",
-    "webpack": "^1.5.3",
     "webpack-dev-server": "^1.7.0"
   }
 }
