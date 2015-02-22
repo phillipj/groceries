@@ -26,8 +26,9 @@
     "json-manifest": "^1.0.1",
     "react": "^0.12.2",
     "reflux": "^0.2.5",
+    "xhr": "^2.0.1",
     "webpack": "^1.5.3",
-    "xhr": "^2.0.1"
+    "json-manifest": "^1.0.1"
   },
   "devDependencies": {
     "react-hot-loader": "^1.1.5",
