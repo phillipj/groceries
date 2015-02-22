@@ -8,7 +8,7 @@
     "serve": "node server.js",
     "serve-bundle": "webpack-dev-server --progress --colors",
     "serve-webpack": "webpack-dev-server --port 8090",
-    "bundle": "rm public/js/* ; NODE_ENV=production webpack --config webpack.prod.config.js && json-manifest public js/*.js > public/js/manifest.json"
+    "bundle": "mkdir -p public/js ; rm public/js/* ; NODE_ENV=production webpack --config webpack.prod.config.js && json-manifest public js/*.js > public/js/manifest.json"
   },
   "author": "Phillip Johnsen <phillip@lightweight.no>",
   "engines": {
