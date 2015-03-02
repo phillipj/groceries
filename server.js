@@ -15,6 +15,8 @@ const routes = {
 http.createServer(function onRequest(req, res) {
 	const reqUrl = url.parse(req.url);
 
+	console.log(new Date().toISOString(), 'incoming request', req.url);
+
 	if (reqUrl.pathname == '/') {
 		routes.index(req, res);
 	} else if (reqUrl.pathname.indexOf('/api') == 0) {
