@@ -20,7 +20,7 @@ const GroceryItem = React.createClass({
 		return (
 			<li style={{'color': isDone ? 'grey' : 'black'}}>
 				<label>
-					<input type='checkbox' value={this.props.content} checked={isDone} onChange={this.handleChange}  /> {this.props.content}
+					<input type='checkbox' value={this.props.content} checked={isDone} onChange={this.handleChange}  /> <span className='h4'>{this.props.content}</span>
 				</label>
 			</li>
 		);
