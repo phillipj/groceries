@@ -24,8 +24,7 @@ function respondToReq(res, err, buffer) {
 						.replace('BUNDLE_PATH', bundlePath)
 						.replace('STATE', store.hydrate());
 
-	res.statusCode = 200;
-	res.writeHead('Content-Type', 'text/html');
+	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.end(content);
 }
 

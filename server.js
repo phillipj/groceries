@@ -12,8 +12,12 @@ const routes = {
 	api: require('./routes/api')
 };
 
-http.createServer(function onRequest(req, res) {
+const SECOND = 1000;
+
+const server = http.createServer(function onRequest(req, res) {
 	const reqUrl = url.parse(req.url);
+
+	res.setTimeout(5 * SECOND);
 
 	console.log(new Date().toISOString(), 'incoming request', req.url);
 
@@ -30,4 +34,6 @@ http.createServer(function onRequest(req, res) {
 }).listen(port, function onListening() {
 	console.log('Server listening on port %s, pid %s', port, process.pid);
 });
+
+server.timeout = 5 * SECOND;
 
