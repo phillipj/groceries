@@ -1,15 +1,15 @@
-var React = require('react');
+const React = require('react');
 
-var GroceryForm = require('./GroceryForm.jsx');
-var GroceryList = require('./GroceryList.jsx');
+const GroceryForm = require('./GroceryForm.jsx');
+const GroceryList = require('./GroceryList.jsx');
 
-var App = React.createClass({
+const App = React.createClass({
   render() {
     return (
-    	<div>
-			<GroceryForm />
-			<GroceryList />
-		</div>
+      <div>
+        <GroceryForm />
+        <GroceryList />
+      </div>
     );
   }
 });

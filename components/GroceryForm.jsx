@@ -1,8 +1,8 @@
-var React = require('react/addons');
+const React = require('react/addons');
 
-var actions = require('../actions/groceryActions');
+const actions = require('../actions/groceryActions');
 
-module.exports = React.createClass({
+const GroceryForm = React.createClass({
 	mixins: [React.addons.LinkedStateMixin],
 
 	getInitialState() {
@@ -23,3 +23,5 @@ module.exports = React.createClass({
 		);
 	}
 });
+
+module.exports = GroceryForm;
