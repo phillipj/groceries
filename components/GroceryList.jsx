@@ -27,7 +27,7 @@ const GroceryItem = React.createClass({
 	}
 });
 
-const GroceryStore = React.createClass({
+const GroceryList = React.createClass({
 	mixins: [Reflux.connect(store, 'groceries')],
 
 	render() {
@@ -42,4 +42,4 @@ const GroceryStore = React.createClass({
 	}
 });
 
-module.exports = GroceryStore;
+module.exports = GroceryList;

@@ -1,22 +1,27 @@
 const Reflux = require('reflux');
-const Immutable = require('immutable');
-const xhr = require('xhr');
 
+const Immutable = require('immutable');
+
+const backend = require('./_backend');
 const groceryActions = require('../actions/groceryActions');
 
-const isBrowser = (typeof(window) !== 'undefined');
-
-let items = Immutable.List();
+let items;
 
 module.exports = Reflux.createStore({
 	listenables: groceryActions,
 
+	init() {
+		backend.init((_items) => {
+			items = Immutable.List(_items);
+		});
+	},
+
 	getInitialState() {
-		return items;
+		return backend.items();
 	},
 
 	hydrate() {
-		return JSON.stringify(items);
+		return JSON.stringify(backend.items());
 	},
 
 	rehydrate(oldState) {
@@ -26,24 +31,20 @@ module.exports = Reflux.createStore({
 	onAdd(content) {
 		if (!content.length) { return; }
 
-		items = items.unshift({
+		var data = {
 			content,
 			done: false
-		});
+		};
 
+		items = items.unshift(data);
 		this.trigger(items);
 
-		if (isBrowser) {
-			xhr({
-				uri: '/api/add',
-				json: { content },
-				method: 'POST'
-			}, (err) => {
-				if (err) {
-					alert('Gah, something failed! ' + err);
-				}
-			});
-		}
+		backend.save(content, function(err) {
+			if (err) {
+				alert('Gikk til helvette!');
+				return console.error('Error while saving in backend:', err.stack);
+			}
+		});
 	},
 
 	onToggleDone(content) {
@@ -55,16 +56,6 @@ module.exports = Reflux.createStore({
 
 		this.trigger(items);
 
-		if (isBrowser) {
-			xhr({
-				uri: '/api/toggleDone',
-				json: items.get(idx),
-				method: 'POST'
-			}, (err) => {
-				if (err) {
-					alert('Gah, something failed! ' + err);
-				}
-			});
-		}
+		backend.toggleDone(items.get(idx));
 	}
 });
