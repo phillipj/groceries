@@ -1,16 +1,15 @@
 {
   "name": "groceries",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "All groceries and no seriousness",
   "main": "index.js",
   "scripts": {
-    "start": "npm run serve-bundle | npm run serve",
+    "start": "node index.js",
     "postinstall": "npm run bundle",
-    "serve": "node server.js",
     "serve-bundle": "webpack-dev-server --progress --colors",
     "serve-webpack": "webpack-dev-server --port 8090",
-    "postinstall": "npm run bundle",
-    "bundle": "mkdir -p public/js ; rm public/js/* ; NODE_ENV=production webpack --config webpack.prod.config.js && json-manifest public js/*.js > public/js/manifest.json"
+    "bundle": "mkdir -p public/js ; rm public/js/* ; NODE_ENV=production webpack --config webpack.prod.config.js && json-manifest public js/*.js > public/js/manifest.json",
+    "lint": "eslint server universal index.js"
   },
   "author": "Phillip Johnsen <phillip@lightweight.no>",
   "engines": {
@@ -19,18 +18,22 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "babel": "^4.0.1",
-    "babel-core": "^4.0.1",
-    "babel-loader": "^4.0.0",
+    "babel-runtime": "^5.8.20",
     "immutable": "^3.6.2",
     "json-manifest": "^1.0.1",
-    "react": "^0.12.2",
-    "reflux": "^0.2.5",
-    "xhr": "^2.0.1",
+    "react": "^0.13.3",
+    "reflux": "^0.2.12",
     "webpack": "^1.5.3",
-    "json-manifest": "^1.0.1"
+    "xhr": "^2.0.1"
   },
   "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-core": "^5.8.22",
+    "babel-eslint": "^4.0.7",
+    "babel-loader": "^5.3.2",
+    "eslint": "^1.1.0",
+    "eslint-config-standard": "^4.1.0",
+    "eslint-plugin-standard": "^1.2.0",
     "react-hot-loader": "^1.1.5",
     "webpack-dev-server": "^1.7.0"
   }

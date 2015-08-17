@@ -10,9 +10,12 @@ module.exports = {
     path: './public/js',
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
 	  loaders: [
-	    {test: /\.jsx?$/, loaders: ['react-hot', 'babel-loader?experimental'], exclude: /node_modules/ }
+	    {test: /\.jsx?$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ }
 	  ]
   },
   plugins: [

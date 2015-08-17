@@ -1,10 +1,12 @@
-const React = require('react');
+import React from 'react'
 
-const App = React.createFactory(require('../components/App.jsx'));
-const store = require('../stores/groceryStore');
+import App from '../universal/components/App'
+import store from '../universal/stores/groceryStore'
 
-const state = JSON.parse(document.getElementById('state').textContent);
+const AppComponent = React.createFactory(App)
 
-store.rehydrate(state);
+const state = JSON.parse(document.getElementById('state').textContent)
 
-React.render(App(), document.getElementById('app'))
+store.rehydrate(state)
+
+React.render(AppComponent(), document.getElementById('app'))

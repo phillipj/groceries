@@ -32,8 +32,8 @@ const GroceryList = React.createClass({
 
 	render() {
 		// can omit .toJS() on v0.13 of React
-		const items = this.state.groceries.map(grocery => {
-			return <GroceryItem content={grocery.content} done={grocery.done} />
+		const items = this.state.groceries.map((grocery, idx) => {
+			return <GroceryItem content={grocery.content} done={grocery.done} key={idx} />
 		}).toJS();
 
 		return (

@@ -1,5 +1,8 @@
 module.exports = {
   entry: ['./browser/main.js'],
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
     path: './public/js',
     filename: 'bundle-[hash].js'
