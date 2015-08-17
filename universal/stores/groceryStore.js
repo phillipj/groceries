@@ -1,14 +1,14 @@
-const Reflux = require('reflux')
-const Immutable = require('immutable')
-const xhr = require('xhr')
+import Reflux from 'reflux'
+import Immutable from 'immutable'
+import xhr from 'xhr'
 
-const groceryActions = require('../actions/groceryActions')
+import groceryActions from '../actions/groceryActions'
 
 const isBrowser = (typeof window !== 'undefined')
 
 let items = Immutable.List()
 
-module.exports = Reflux.createStore({
+export default Reflux.createStore({
   listenables: groceryActions,
 
   getInitialState () {

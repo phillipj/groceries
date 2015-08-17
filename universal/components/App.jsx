@@ -7,8 +7,8 @@ export default React.createClass({
   render() {
     return (
       <div>
-      <GroceryForm />
-      <GroceryList />
+        <GroceryForm />
+        <GroceryList />
       </div>
     )
   }

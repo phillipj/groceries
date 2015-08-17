@@ -1,27 +1,27 @@
-const React = require('react/addons');
+import React from 'react/addons'
 
-const actions = require('../actions/groceryActions');
+import actions from '../actions/groceryActions'
 
 const GroceryForm = React.createClass({
-	mixins: [React.addons.LinkedStateMixin],
+  mixins: [React.addons.LinkedStateMixin],
 
-	getInitialState() {
-		return { content: '' };
-	},
+  getInitialState() {
+    return { content: '' }
+  },
 
-	handleSubmit(e) {
-		e.preventDefault();
-		actions.add(this.state.content);
-		this.setState({ content: '' });
-	},
+  handleSubmit(e) {
+    e.preventDefault()
+    actions.add(this.state.content)
+    this.setState({ content: '' })
+  },
 
-	render() {
-		return (
-			<form onSubmit={this.handleSubmit}>
-				<input type="text" className="form-control input-lg" valueLink={this.linkState('content')} placeholder='Skriv inn matvare...' />
-			</form>
-		);
-	}
-});
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" className="form-control input-lg" valueLink={this.linkState('content')} placeholder='Skriv inn matvare...' />
+      </form>
+    )
+  }
+})
 
-module.exports = GroceryForm;
+export default GroceryForm
