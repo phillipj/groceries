@@ -5,8 +5,6 @@ import _index from './routes/index'
 import _script from './routes/script'
 import _api from './routes/api'
 
-const port = process.env.PORT || 3000
-
 const routes = {
   index: _index,
   script: _script,
@@ -32,8 +30,8 @@ const server = http.createServer((req, res) => {
     res.statusCode = 404
     res.end('not found')
   }
-}).listen(port, () => {
-  console.log('Server listening on port %s, pid %s', port, process.pid)
 })
 
 server.timeout = 5 * SECOND
+
+export default server
