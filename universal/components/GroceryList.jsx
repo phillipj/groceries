@@ -31,13 +31,12 @@ const GroceryList = React.createClass({
   mixins: [Reflux.connect(store, 'groceries')],
 
   render() {
-    // can omit .toJS() on v0.13 of React
     const items = this.state.groceries.map((grocery, idx) => {
       return <GroceryItem content={grocery.content} done={grocery.done} key={idx} />
-    }).toJS()
+    })
 
-  return (
-    <ul className='list-unstyled' style={{marginTop: '15px'}}>{items}</ul>
+    return (
+      <ul className='list-unstyled' style={{marginTop: '15px'}}>{items}</ul>
     )
   }
 })
