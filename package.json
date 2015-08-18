@@ -13,7 +13,7 @@
   },
   "author": "Phillip Johnsen <phillip@lightweight.no>",
   "engines": {
-    "iojs": ">= 2.5.0"
+    "iojs": "^2.5.0"
   },
   "private": true,
   "license": "MIT",
