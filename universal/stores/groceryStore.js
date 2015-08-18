@@ -8,6 +8,10 @@ const isBrowser = (typeof window !== 'undefined')
 
 let items = Immutable.List()
 
+function isMultipleItems (content) {
+  return content.indexOf(',') > -1
+}
+
 export default Reflux.createStore({
   listenables: groceryActions,
 
@@ -25,6 +29,10 @@ export default Reflux.createStore({
 
   onAdd (content) {
     if (!content.length) { return }
+
+    if (isMultipleItems(content)) {
+      return content.split(',').forEach((oneItem) => this.onAdd(oneItem))
+    }
 
     items = items.unshift({
       content,
